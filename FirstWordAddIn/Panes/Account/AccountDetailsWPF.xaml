@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="FirstWordAddIn.Panes.Account.AccountDetailsWPF"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:controls="clr-namespace:Regy2.Controls"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FirstWordAddIn.Panes.Account"
+             mc:Ignorable="d" 
+             d:DesignHeight="1010.122" d:DesignWidth="773.537"
+             MinWidth="600"
+             Background="White">
+    <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="1010">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto" MinHeight="150"></RowDefinition>
+                <RowDefinition Height="Auto" MinHeight="5"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <controls:Header 
+					HeaderStr="Account details" 
+					Padding="16, 26, 0, 54"
+					Grid.Row="0">
+                </controls:Header>
+                <controls:Title 
+					TitleStr="These are your account details.
+Contact your organization admin for any changes. " 
+					Grid.Row="1"
+					Padding="16, 0, 0, 0">
+                </controls:Title>
+            </Grid>
+            <StackPanel
+					Grid.Row="1" 
+					Margin="40,35,40,150" Grid.RowSpan="2">
+                
+                <controls:Title 
+				Margin="0, 0, 48, 16"
+				TitleStr="Organization" 
+				Grid.Row="1">
+                </controls:Title>
+                <controls:CopyEditField
+                    ClickCommand="{Binding ClickCommand1}"
+                    ImageStr="pack://siteoforigin:,,,/Resources/Copy.png"
+                    TextStr="{Binding Organization, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    />
+                <controls:Title 
+				Margin="0, 24, 48, 16"
+				TitleStr="User ID" 
+				Grid.Row="1">
+                </controls:Title>
+                <controls:CopyEditField
+                    ClickCommand="{Binding ClickCommand2}"
+                    ImageStr="pack://siteoforigin:,,,/Resources/Copy.png"
+                    TextStr="{Binding UserID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    />
+                <controls:Title 
+				Margin="0, 24, 48, 16"
+				TitleStr="User email" 
+				Grid.Row="1">
+                </controls:Title>
+                <controls:CopyEditField
+                    ClickCommand="{Binding ClickCommand3}"
+                    ImageStr="pack://siteoforigin:,,,/Resources/Copy.png"
+                    TextStr="{Binding UserEmail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    />
+                <controls:Title 
+				Margin="0, 24, 48, 16"
+				TitleStr="Sign up date" 
+				Grid.Row="1">
+                </controls:Title>
+                <controls:CopyEditField
+                    ClickCommand="{Binding ClickCommand4}"
+                    ImageStr="pack://siteoforigin:,,,/Resources/Copy.png"
+                    TextStr="{Binding SignUpDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    />
+            </StackPanel>
+            <StackPanel 
+				HorizontalAlignment="Right"
+				Orientation="Horizontal" 
+				Grid.Row="2" 
+				Margin="0, 24, 40, 10">
+                <controls:GeneralButton
+				ClickCommand="{Binding BackCommand}"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Bottom"
+				Margin="0, 0, 50, 0"
+				TextStr="Back">
+                </controls:GeneralButton>
+                <controls:GeneralButton
+				ClickCommand="{Binding NextCommand}"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Bottom"
+				TextStr="Go to Admin Console">
+                </controls:GeneralButton>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

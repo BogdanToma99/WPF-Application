@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"><?define Regy2_TargetDir=$(var.Regy2.TargetDir)?>
+	<Product Id="*" Name="RegySetup" Language="1033" Version="1.0.0.0" Manufacturer="Toma Bogdan" UpgradeCode="ae913a3a-936a-4094-ba96-1bfc05f3a29b">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+		<WixVariable Id="WixUILicenseRtf" Value="license.rtf" />
+		<UIRef Id="WixUI_InstallDir" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate EmbedCab="yes"/>
+
+		<Feature Id="ProductFeature" Title="RegySetup" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+			<ComponentGroupRef Id="Resources_files" />
+			<ComponentGroupRef Id="Panes_DataSets_files" />
+			<ComponentGroupRef Id="Controls_files" />
+			<ComponentRef Id="Registry_FriendlyName" />
+			<ComponentRef Id="Registry_Description" />
+			<ComponentRef Id="Registry_Manifest" />
+			<ComponentRef Id="Registry_LoadBehavior" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="RegySetup">
+				  <Directory Id="Controls" Name="Controls" />
+				  <Directory Id="Panes" Name="Panes">
+				    <Directory Id="Panes_DataSets" Name="DataSets" />
+				  </Directory>
+				  <Directory Id="Resources" Name="Resources" />
+				</Directory>
+				<Component Id="Registry_FriendlyName">
+					<RegistryValue Id="RegKey_FriendlyName" Root="HKCU" Key="Software\Microsoft\Office\Word\AddIns\Regy2" Name="Name" Value="Regy2" Type="string" KeyPath="yes" />
+				</Component>
+				<Component Id="Registry_Description">
+					<RegistryValue Id="RegKey_Description" Root="HKCU" Key="Software\Microsoft\Office\Word\AddIns\Regy2" Name="Description" Value="Add-In for registry management" Type="string" KeyPath="yes" />
+				</Component>
+				<Component Id="Registry_Manifest">
+					<RegistryValue Id="RegKey_Manifest" Root="HKCU" Key="Software\Microsoft\Office\Word\AddIns\Regy2" Name="Manifest" Value="[INSTALLFOLDER]FirstWordAddIn.vsto|vstolocal" Type="string" KeyPath="yes" />
+				</Component>
+				<Component Id="Registry_LoadBehavior">
+					<RegistryValue Id="RegKey_LoadBehavior" Root="HKCU" Key="Software\Microsoft\Office\Word\AddIns\Regy2" Name="LoadBehavior" Value="3" Type="integer" KeyPath="yes" />
+				</Component>
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<Component Id="IDScanDevicesLib.dll" Guid="28e10861-22ff-41c1-958e-cd4e7684cfa5">
+			  <File Id="IDScanDevicesLib.dll" Name="IDScanDevicesLib.dll" Source="$(var.Regy2_TargetDir)IDScanDevicesLib.dll" />
+			</Component>
+			<Component Id="Newtonsoft.Json.dll" Guid="ea1fc820-5052-4a63-b329-69388e8e245a">
+			  <File Id="Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" Source="$(var.Regy2_TargetDir)Newtonsoft.Json.dll" />
+			</Component>
+			<Component Id="Microsoft.Office.Interop.Excel.dll" Guid="535b4c46-3cb5-45a1-ae4a-9e279d5619fb">
+			  <File Id="Microsoft.Office.Interop.Excel.dll" Name="Microsoft.Office.Interop.Excel.dll" Source="$(var.Regy2_TargetDir)Microsoft.Office.Interop.Excel.dll" />
+			</Component>
+			<Component Id="Microsoft.Office.Tools.Common.v4.0.Utilities.dll" Guid="ad1b323d-0f78-4a49-95a2-db13d7d2f655">
+			  <File Id="Microsoft.Office.Tools.Common.v4.0.Utilities.dll" Name="Microsoft.Office.Tools.Common.v4.0.Utilities.dll" Source="$(var.Regy2_TargetDir)Microsoft.Office.Tools.Common.v4.0.Utilities.dll" />
+			</Component>
+			<Component Id="FirstWordAddIn.dll.config" Guid="555cceb8-111f-4222-9631-54014a85ecf0">
+			  <File Id="FirstWordAddIn.dll.config" Name="FirstWordAddIn.dll.config" Source="$(var.Regy2_TargetDir)FirstWordAddIn.dll.config" />
+			</Component>
+			<Component Id="FirstWordAddIn.dll" Guid="baefdd62-8fff-41af-933f-a4a995324e8d">
+			  <File Id="FirstWordAddIn.dll" Name="FirstWordAddIn.dll" Source="$(var.Regy2_TargetDir)FirstWordAddIn.dll" />
+			</Component>
+			<Component Id="settings.json" Guid="c1cc9260-52d2-49c1-8e5c-f958f136bc0f">
+			  <File Id="settings.json" Name="settings.json" Source="$(var.Regy2_TargetDir)settings.json" />
+			</Component>
+			<Component Id="office.dll" Guid="c4bd8005-9a4e-407a-a22f-e4250aae30b8">
+			  <File Id="office.dll" Name="office.dll" Source="$(var.Regy2_TargetDir)office.dll" />
+			</Component>
+			<Component Id="Microsoft.Vbe.Interop.dll" Guid="f0a030be-082c-4070-95c5-7e39ad6a52a1">
+			  <File Id="Microsoft.Vbe.Interop.dll" Name="Microsoft.Vbe.Interop.dll" Source="$(var.Regy2_TargetDir)Microsoft.Vbe.Interop.dll" />
+			</Component>
+			<Component Id="FirstWordAddIn.dll.manifest" Guid="6437e303-3430-4e1e-9375-56b1cac69fa6">
+				<File Id="FirstWordAddIn.dll.manifest" Name="FirstWordAddIn.dll.manifest" Source="$(var.Regy2_TargetDir)FirstWordAddIn.dll.manifest" />
+			</Component>
+			<Component Id="FirstWordAddIn.vsto" Guid="b677e5f0-6a9e-4be3-8269-4cd2c846643f">
+				<File Id="FirstWordAddIn.vsto" Name="FirstWordAddIn.vsto" Source="$(var.Regy2_TargetDir)FirstWordAddIn.vsto" />
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+	<Fragment>
+	  <ComponentGroup Id="Resources_files" Directory="Resources">
+	    <Component Id="Resources_Account.png" Guid="19df5e95-55cd-45d4-a306-e56f53d68374">
+	      <File Id="Resources_Account.png" Name="Account.png" Source="$(var.Regy2_TargetDir)Resources\Account.png" />
+	    </Component>
+	    <Component Id="Resources_Warning.png" Guid="3a3b0eab-3e44-457b-8da6-d2d9c76476f5">
+	      <File Id="Resources_Warning.png" Name="Warning.png" Source="$(var.Regy2_TargetDir)Resources\Warning.png" />
+	    </Component>
+	    <Component Id="Resources_success.png" Guid="26f70eac-aed0-4b2e-800e-021b83c9e241">
+	      <File Id="Resources_success.png" Name="success.png" Source="$(var.Regy2_TargetDir)Resources\success.png" />
+	    </Component>
+	    <Component Id="Resources_Data1.png" Guid="7d52fa73-f362-4b4b-9f31-7a5b6e3432e6">
+	      <File Id="Resources_Data1.png" Name="Data1.png" Source="$(var.Regy2_TargetDir)Resources\Data1.png" />
+	    </Component>
+	    <Component Id="Resources_Excel.png" Guid="58c6bcfe-941c-4e9f-8236-69f058ac5739">
+	      <File Id="Resources_Excel.png" Name="Excel.png" Source="$(var.Regy2_TargetDir)Resources\Excel.png" />
+	    </Component>
+	    <Component Id="Resources_GoogleSheet.png" Guid="2de0d85d-f38c-4bcf-9eab-0cc280b5eae8">
+	      <File Id="Resources_GoogleSheet.png" Name="GoogleSheet.png" Source="$(var.Regy2_TargetDir)Resources\GoogleSheet.png" />
+	    </Component>
+	    <Component Id="Resources_Merge1.png" Guid="e16e5dd1-a54e-4b8e-9b95-b7471bee55c2">
+	      <File Id="Resources_Merge1.png" Name="Merge1.png" Source="$(var.Regy2_TargetDir)Resources\Merge1.png" />
+	    </Component>
+	    <Component Id="Resources_MergeTag.png" Guid="710d9895-ad9e-4085-bc2c-9a4ed5f36dcb">
+	      <File Id="Resources_MergeTag.png" Name="MergeTag.png" Source="$(var.Regy2_TargetDir)Resources\MergeTag.png" />
+	    </Component>
+	    <Component Id="Resources_IDScaner.png" Guid="9d181667-da84-42e1-b515-d11ee62c2058">
+	      <File Id="Resources_IDScaner.png" Name="IDScaner.png" Source="$(var.Regy2_TargetDir)Resources\IDScaner.png" />
+	    </Component>
+	    <Component Id="Resources_IDScaner2.png" Guid="12bbcf46-a802-4568-8d98-18192c4c2d47">
+	      <File Id="Resources_IDScaner2.png" Name="IDScaner2.png" Source="$(var.Regy2_TargetDir)Resources\IDScaner2.png" />
+	    </Component>
+	    <Component Id="Resources_Sources1.png" Guid="9633bfeb-3435-4fd7-a281-2aec0cb52b98">
+	      <File Id="Resources_Sources1.png" Name="Sources1.png" Source="$(var.Regy2_TargetDir)Resources\Sources1.png" />
+	    </Component>
+	    <Component Id="Resources_error.png" Guid="70123006-d613-478f-a6a4-f7992a24c3e1">
+	      <File Id="Resources_error.png" Name="error.png" Source="$(var.Regy2_TargetDir)Resources\error.png" />
+	    </Component>
+	    <Component Id="Resources_Plus.png" Guid="4e04bde7-4db1-460f-8a69-da2c017cc00f">
+	      <File Id="Resources_Plus.png" Name="Plus.png" Source="$(var.Regy2_TargetDir)Resources\Plus.png" />
+	    </Component>
+	    <Component Id="Resources_License.png" Guid="2fd6438a-49c6-4f4b-8841-584f4fcdbf0a">
+	      <File Id="Resources_License.png" Name="License.png" Source="$(var.Regy2_TargetDir)Resources\License.png" />
+	    </Component>
+	    <Component Id="Resources_Contact.png" Guid="27a1a21b-f460-4db8-b304-f1c1ad9bd345">
+	      <File Id="Resources_Contact.png" Name="Contact.png" Source="$(var.Regy2_TargetDir)Resources\Contact.png" />
+	    </Component>
+	    <Component Id="Resources_Copy.png" Guid="29114932-c92f-4651-852b-ad6801be29d0">
+	      <File Id="Resources_Copy.png" Name="Copy.png" Source="$(var.Regy2_TargetDir)Resources\Copy.png" />
+	    </Component>
+	    <Component Id="Resources_Account2.png" Guid="288118d0-2e40-45b3-b28b-645e5072d184">
+	      <File Id="Resources_Account2.png" Name="Account2.png" Source="$(var.Regy2_TargetDir)Resources\Account2.png" />
+	    </Component>
+	  </ComponentGroup>
+	</Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="Panes_DataSets_files" Directory="Panes_DataSets">
+      <Component Id="Panes_DataSets_MergeTag.png" Guid="f9906f06-d5e0-4ea6-82d3-bed0ba777c24">
+        <File Id="Panes_DataSets_MergeTag.png" Name="MergeTag.png" Source="$(var.Regy2_TargetDir)Panes\DataSets\MergeTag.png" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="Controls_files" Directory="Controls">
+      <Component Id="Controls_Tick.png" Guid="7577b0b6-df60-4196-b453-caadcacc49d3">
+        <File Id="Controls_Tick.png" Name="Tick.png" Source="$(var.Regy2_TargetDir)Controls\Tick.png" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

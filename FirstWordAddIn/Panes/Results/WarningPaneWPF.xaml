@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="FirstWordAddIn.Panes.Results.WarningPaneWPF"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:controls="clr-namespace:Regy2.Controls"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FirstWordAddIn.Panes.Results"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             MinWidth="600"
+             Background="White">
+    <ScrollViewer VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalScrollBarVisibility="Auto">
+        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" MinHeight="30"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto" MinHeight="30"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                <controls:Header 
+				HeaderStr="{Binding Header}" 
+				Padding="16, 24, 0, 0"
+				Grid.Row="0">
+                </controls:Header>
+            </StackPanel>
+            <Grid Grid.Row="1" VerticalAlignment="Center" Margin="10, 100, 10, 100">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <controls:Title Grid.Row="2"
+				HorizontalAlignment="Center"
+				Margin="0, 20, 0, 16"
+				TitleStr="{Binding Title}"   VerticalAlignment="Center">
+                </controls:Title>
+                <Image x:Name="TriggerImage" Grid.Row="1"
+				Grid.Column="0"
+				Width="100" 
+				Height="100"
+				Source="pack://siteoforigin:,,,/Resources/Warning.png" VerticalAlignment="Center"/>
+            </Grid>
+            <StackPanel VerticalAlignment="Bottom" Grid.Row="2">
+                <controls:GeneralButton
+			    Grid.Row="2"
+				Margin="0, 0, 40, 10"
+				ClickCommand="{Binding CloseCommand}"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Bottom"
+				TextStr="Ok">
+                </controls:GeneralButton>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="Regy2.Controls.EditField"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Regy2.Controls"
+             mc:Ignorable="d" 
+             x:Name="uc">
+	<StackPanel Orientation="Vertical">
+		<StackPanel Orientation="Horizontal" Margin="0, 0, 0, 14">
+			<TextBlock 
+			 Text="{Binding Path=TitleStr, Mode=TwoWay, ElementName=uc, UpdateSourceTrigger=PropertyChanged}" 
+			 FontFamily="Roboto" 
+			 Grid.Row="0"
+			 FontSize="22">
+			</TextBlock>
+			<TextBlock 
+			 Margin="8, 0, 0, 0"
+			 Text="{Binding Path=SubStr, Mode=TwoWay, ElementName=uc, UpdateSourceTrigger=PropertyChanged}" 
+			 FontFamily="Roboto" 
+			 Foreground="Red"
+			 Grid.Row="0"
+			 FontSize="22">
+			</TextBlock>
+		</StackPanel>
+		<TextBox 
+			BorderThickness="1"
+			BorderBrush="#969696"
+			Padding="24, 0, 0, 0"
+			Text="{Binding Path=TextStr, Mode=TwoWay, ElementName=uc, UpdateSourceTrigger=PropertyChanged}" 
+			VerticalContentAlignment="Center"
+			HorizontalAlignment="Left"
+			Grid.Row="1"
+			FontSize="18"
+			FontFamily="Roboto" 
+			Visibility="Visible"
+			IsEnabled="True"
+			MinHeight="45"
+			Height="{Binding Path=HeightInt, ElementName=uc}"
+			Width="454">
+		</TextBox>
+        
+	</StackPanel>
+</UserControl>

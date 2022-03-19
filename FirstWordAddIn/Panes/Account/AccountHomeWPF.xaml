@@ -1,0 +1,105 @@
+﻿<UserControl x:Class="FirstWordAddIn.Panes.Account.AccountHomeWPF"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:controls="clr-namespace:Regy2.Controls"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FirstWordAddIn.Panes.Account"
+             mc:Ignorable="d" 
+             d:DesignHeight="945.284" d:DesignWidth="830.017"
+             MinWidth="600"
+             Background="White">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,0,10,10">
+        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <controls:Header 
+				HeaderStr="Account details" 
+				Padding="16, 24, 0, 54"
+				Grid.Row="0">
+                </controls:Header>
+                <controls:Title 
+				TitleStr="The most relevant details are listed in here. 
+Contact us for more information. " 
+				Grid.Row="1"
+				Padding="16, 0, 0, 48" Margin="10,0,0,0">
+                </controls:Title>
+            </Grid>
+            <Grid Grid.Row="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" VerticalAlignment="Center">
+                    <Image
+							Width="104" 
+							Height="104"
+							Source="pack://siteoforigin:,,,/Resources/Account2.png">
+                        <Image.InputBindings>
+                            <MouseBinding Gesture="LeftClick" Command="{Binding AccountCommand, Mode=OneTime}" />
+                        </Image.InputBindings>
+                    </Image>
+                    <TextBlock 
+							Margin="0, 24, 0, 60" 
+							FontFamily="Roboto"
+							HorizontalAlignment="Center"
+							Text="Account"
+							FontSize="22">
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Grid.Row="1" VerticalAlignment="Center">
+                    <Image
+							Width="104" 
+							Height="104"
+							Source="pack://siteoforigin:,,,/Resources/License.png">
+                        <Image.InputBindings>
+                            <MouseBinding Gesture="LeftClick" Command="{Binding LicenseCommand, Mode=OneTime}" />
+                        </Image.InputBindings>
+                    </Image>
+                    <TextBlock 
+							Margin="0, 24, 0, 60" 
+							FontFamily="Roboto"
+							HorizontalAlignment="Center"
+							Text="License"
+							FontSize="22">
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Grid.Row="2" VerticalAlignment="Center">
+                    <Image
+							Width="104" 
+							Height="104"
+							Source="pack://siteoforigin:,,,/Resources/Contact.png">
+                        <Image.InputBindings>
+                            <MouseBinding Gesture="LeftClick" Command="{Binding ContactCommand, Mode=OneTime}" />
+                        </Image.InputBindings>
+                    </Image>
+                    <TextBlock 
+							Margin="0, 24, 0, 0" 
+							FontFamily="Roboto"
+							HorizontalAlignment="Center"
+							Text="Contact"
+							FontSize="22">
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+
+
+            <StackPanel 
+					HorizontalAlignment="Right"
+					Orientation="Horizontal" 
+					Grid.Row="3" 
+					Margin="0, 40, 40, 10">
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

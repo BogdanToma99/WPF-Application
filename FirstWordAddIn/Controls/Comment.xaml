@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="Regy2.Controls.Comment"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Regy2.Controls"
+             mc:Ignorable="d" 
+             x:Name="uc">
+	<UserControl.Resources>
+		<local:BoolToAlignmentConverter x:Key="BoolToAlignmentConverter"></local:BoolToAlignmentConverter>
+		<local:BoolToColumnAlignmentConverter x:Key="BoolToColumnAlignmentConverter"></local:BoolToColumnAlignmentConverter>
+		<local:BoolToInverseColumnAlignmentConverter x:Key="BoolToInverseColumnAlignmentConverter"></local:BoolToInverseColumnAlignmentConverter>
+	</UserControl.Resources>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"></ColumnDefinition>
+			<ColumnDefinition Width="Auto"></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		<StackPanel Margin="12,0,12,0" Grid.Column="{Binding Path=IsRightBool, ElementName=uc, Converter={StaticResource BoolToColumnAlignmentConverter}}">
+			<Border VerticalAlignment="Top"
+				Background="#85A5C8"
+				Height="36"
+				Width="36" 
+				CornerRadius="100" 
+				BorderThickness="0">
+				<Image
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center"
+					Height="16"
+					Width="16"
+					Source="pack://application:,,,/Regy2;component/Resources/Person.png"
+					Grid.Column="0">
+				</Image>
+			</Border>
+		</StackPanel>
+		<Grid Grid.Column="{Binding Path=IsRightBool, ElementName=uc, Converter={StaticResource BoolToInverseColumnAlignmentConverter}}" Width="400">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+			</Grid.RowDefinitions>
+			<TextBlock 
+				HorizontalAlignment="{Binding Path=IsRightBool, ElementName=uc, Converter={StaticResource BoolToAlignmentConverter}}"
+				Grid.Row="0" Margin="0, 0, 0, 8"
+				Foreground="#4A525D"
+				VerticalAlignment="Center"
+				Text="{Binding Path=TitleStr, ElementName=uc}" 
+				FontSize="18" 
+				FontWeight="Bold"
+				FontFamily="Roboto">
+			</TextBlock>
+			<TextBlock 
+				HorizontalAlignment="{Binding Path=IsRightBool, ElementName=uc, Converter={StaticResource BoolToAlignmentConverter}}"
+				Grid.Row="1" Margin="0, 0, 0, 8"
+					Foreground="#4A525D"
+					VerticalAlignment="Center"
+					Text="{Binding Path=DateStr, ElementName=uc}" 
+					FontStyle="Italic"
+					FontSize="14" 
+					FontFamily="Roboto">
+			</TextBlock>
+			<TextBlock Grid.Row="2"
+				HorizontalAlignment="{Binding Path=IsRightBool, ElementName=uc, Converter={StaticResource BoolToAlignmentConverter}}"
+				Margin="0, 0, 0, 16" 
+				Foreground="#4A525D"
+				Text="{Binding Path=MessageStr, ElementName=uc}" 
+				FontSize="18" 
+				TextWrapping="Wrap"
+				FontFamily="Roboto">
+			</TextBlock>
+			<StackPanel 
+				Orientation="Horizontal" 
+				Grid.Row="3"
+				HorizontalAlignment="{Binding Path=IsRightBool, ElementName=uc, Converter={StaticResource BoolToAlignmentConverter}}">
+				<Image 
+					Height="20"
+					Width="20"
+					HorizontalAlignment="Left"
+					Margin="0, 0, 20, 0"
+					Source="pack://application:,,,/Regy2;component/Resources/Like.png">
+					<Image.InputBindings>
+						<MouseBinding 
+							Command="{Binding Path=LikeCommand, ElementName=uc}" 
+							CommandParameter="{Binding Path=CommentIdStr, ElementName=uc}"
+							MouseAction="LeftClick" />
+					</Image.InputBindings>
+				</Image>
+				<Image 
+					Height="20"
+					Width="20"
+					HorizontalAlignment="Left"
+					Margin="0, 0, 20, 0"
+					Source="pack://application:,,,/Regy2;component/Resources/Dislike.png">
+					<Image.InputBindings>
+						<MouseBinding 
+							Command="{Binding Path=DislikeCommand, ElementName=uc}" 
+							CommandParameter="{Binding Path=CommentIdStr, ElementName=uc}"
+							MouseAction="LeftClick" />
+					</Image.InputBindings>
+				</Image>
+				<Image 
+					Height="20"
+					Width="20"
+					HorizontalAlignment="Left"
+					Margin="0, 0, 0, 0"
+					Source="pack://application:,,,/Regy2;component/Resources/Reply.png">
+					<Image.InputBindings>
+						<MouseBinding 
+							Command="{Binding Path=ReplyCommand, ElementName=uc}" 
+							CommandParameter="{Binding Path=CommentIdStr, ElementName=uc}"
+							MouseAction="LeftClick" />
+					</Image.InputBindings>
+				</Image>
+			</StackPanel>
+		</Grid>
+	</Grid>
+</UserControl>

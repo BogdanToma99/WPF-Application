@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="Ribbon_Load">
+	<ribbon>
+		<tabs>
+			<tab idMso="TabAddIns">
+				<group id="MergeGroup" label="Data input automation">
+					<button id="SourcesBtn" label="Sources" onAction="Sources" size="large" getImage="GetSourcesImage"/>
+					<button id="DataSetsBtn" label="Data Sets" onAction="Data" size="large" getImage="GetDataImage"/>
+					<button id="MergeBtn" label="Merge Tags" onAction="Merge" size="large" getImage="GetMergeImage"/>
+				</group>
+				<group id="RegyGroup" label="Go To">
+					<button id="RegyBtn" label="Account" onAction="Account" size="large" getImage="GetLogo" />
+				</group>
+			</tab>
+		</tabs>
+	</ribbon>
+</customUI>

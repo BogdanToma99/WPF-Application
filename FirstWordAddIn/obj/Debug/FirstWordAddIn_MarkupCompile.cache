@@ -1,0 +1,20 @@
+﻿FirstWordAddIn
+
+
+library
+C#
+.cs
+C:\Users\Bogdan\Desktop\proiect word\FirstWordAddIn\FirstWordAddIn\obj\Debug\
+FirstWordAddIn
+none
+false
+VSTO40;DEBUG;TRACE
+
+41-841828695
+201871777479
+69-1250531109
+160-650435088
+Controls\BottomSearchBar.xaml;Controls\CheckBox.xaml;Controls\ComboField.xaml;Controls\Comment.xaml;Controls\ConnectionDetail.xaml;Controls\CounterField.xaml;Controls\DateField.xaml;Controls\DocumentDetail.xaml;Controls\EditField.xaml;Controls\EndorsmentComment.xaml;Controls\GeneralButton.xaml;Controls\Header.xaml;Controls\Log.xaml;Controls\RadioButton.xaml;Controls\RequestEndorsment.xaml;Controls\SourceElement.xaml;Controls\Tag.xaml;Controls\Title.xaml;Controls\SourceTag.xaml;Controls\CopyEditField.xaml;Controls\Viewer.xaml;Panes\Account\AccountHomeWPF.xaml;Panes\Account\AccountDetailsWPF.xaml;Panes\Account\AccountLicenseWPF.xaml;Panes\Account\AccountContactWPF.xaml;Panes\DataSets\DataSetPaneWPF.xaml;Panes\DataSets\DataSetNoDataSetWPF.xaml;Panes\DataSets\DataSetListWPF.xaml;Panes\DataSets\DataSetInputWPF.xaml;Panes\DataSets\DataSetInputExcelWPF.xaml;Panes\MergeTags\MergeTagAddWPF.xaml;Panes\MergeTags\MergeTagNoMergeTagWPF.xaml;Panes\MergeTags\MergeTagListWPF.xaml;Panes\Results\SuccessPaneWPF.xaml;Panes\Results\FaultPaneWPF.xaml;Panes\Results\WarningPaneWPF.xaml;Panes\Sources\SourcesAddExcelWPF.xaml;Panes\Sources\SourcesAddIdScanner.xaml;Panes\Sources\SourcesListWPF.xaml;Panes\Sources\SourcesNoSourceWPF.xaml;Panes\Sources\SourcesPurchaseWPF.xaml;
+
+False
+

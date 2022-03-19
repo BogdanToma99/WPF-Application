@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="FirstWordAddIn.Panes.Sources.SourcesListWPF"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:controls="clr-namespace:Regy2.Controls"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FirstWordAddIn.Panes.Sources"
+             mc:Ignorable="d" d:DesignWidth="813.873"
+             MinWidth="600"
+             Background="White" Height="810.892"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+             >
+    <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,0,0,10">
+        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="807">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <controls:Header 
+				HeaderStr="Available sources" 
+				Padding="16, 24, 0, 54"
+				Grid.Row="0">
+                </controls:Header>
+                <controls:Title 
+				TitleStr="Available sources are listed below. You can search for a specific source or manage them using the options available." 
+				Grid.Row="1"
+				Padding="16, 0, 0, 48">
+                </controls:Title>
+                <StackPanel Grid.Row="2" >
+                    <controls:EditField 
+						Margin="48, 0, 48, 0"
+						TitleStr="Search sources" 
+						TextStr="{Binding SearchSource, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"                  
+>
+                    </controls:EditField>
+
+                </StackPanel>
+            </Grid>
+            <StackPanel Margin="48, 50, 48, 0" Grid.Row="1">
+                <controls:Title 
+					TitleStr="Source list"
+					Margin="0, 0, 0, 24">
+                </controls:Title>
+                <ScrollViewer Height="236" VerticalScrollBarVisibility="Auto">
+                    <StackPanel x:Name="panel" >
+                        <ItemsControl ItemsSource="{Binding FilteredSources}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <controls:Tag 
+								        Padding="0, 0, 0, 16"
+								        TextStr="{Binding Label}"
+                                        DeleteCommand="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}, Path=DataContext.DeleteCommand}"
+                                        TagIdStr="{Binding SourceId}"
+                                        GoToVisibilityBool="False"
+								        >
+                                    </controls:Tag>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </ScrollViewer>
+            </StackPanel>
+            <StackPanel 
+					HorizontalAlignment="Right"
+					Orientation="Horizontal" 
+					Grid.Row="3" 
+					Margin="0, 40, 40, 10">
+                <controls:GeneralButton
+					ClickCommand="{Binding AddNewSourceCommand}"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Bottom"
+					TextStr="Add new source">
+                </controls:GeneralButton>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

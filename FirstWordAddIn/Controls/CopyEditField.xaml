@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Regy2.Controls.CopyEditField"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Regy2.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="679"
+             x:Name="uc"
+             >
+    <Grid Height="45" HorizontalAlignment="Left">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox 
+			BorderThickness="1"
+			BorderBrush="#969696"
+			Padding="24, 0, 0, 0"
+			Text="{Binding Path=TextStr, Mode=TwoWay, ElementName=uc, UpdateSourceTrigger=PropertyChanged}" 
+			VerticalContentAlignment="Center"
+			HorizontalAlignment="Left"
+			FontSize="18"
+			FontFamily="Roboto" 
+			Visibility="Visible"
+			IsEnabled="True"
+			Width="454" Margin="0,0,-22,0" Grid.ColumnSpan="3"/>
+        <Image
+				Width="18"
+                HorizontalAlignment="Right"
+				Source="{Binding Path=ImageStr, ElementName=uc}" Margin="0,17,0,10" RenderTransformOrigin="0.519,0.537">
+            <Image.InputBindings>
+                <MouseBinding 
+						Command="{Binding Path=ClickCommand, ElementName=uc}" 
+						CommandParameter="{Binding Path=RequestIdStr, ElementName=uc}"
+						MouseAction="LeftClick" />
+            </Image.InputBindings>
+        </Image>
+
+    </Grid>
+</UserControl>

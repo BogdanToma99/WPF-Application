@@ -1,0 +1,26 @@
+{
+  "Sources": [
+    {
+      "FilePath": "C:\\Users\\Bogdan\\Desktop\\test4.xlsx",
+      "Type": 2,
+      "Label": "sursa2",
+      "SourceId": "51d07809-0672-4273-9576-4faff0cd5c42"
+    }
+  ],
+  "MergeTags": [
+    {
+      "Label": "Nume",
+      "Source": "sursa2",
+      "Column": "Nume",
+      "MergeTagId": "0c4663f4-8ca5-4957-826a-267dec6b5c14"
+    }
+  ],
+  "DataSets": [
+    {
+      "Label": "sda",
+      "Source": "sursa2",
+      "DataSetMember": "dasdsa",
+      "DataSetId": "e3d04e96-299d-4649-8f93-302ef1590941"
+    }
+  ]
+}

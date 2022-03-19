@@ -1,0 +1,2 @@
+C:\Users\Bogdan\Desktop\proiect word\FirstWordAddIn\RegySetup\bin\Debug\RegySetup.msi
+C:\Users\Bogdan\Desktop\proiect word\FirstWordAddIn\RegySetup\bin\Debug\RegySetup.wixpdb

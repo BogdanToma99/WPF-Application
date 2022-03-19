@@ -1,0 +1,6 @@
+obj\Debug\Product.wixobj
+C:\Users\Bogdan\Desktop\proiect word\FirstWordAddIn\RegySetup\bin\Debug\RegySetup.msi
+C:\Users\Bogdan\Desktop\proiect word\FirstWordAddIn\RegySetup\bin\Debug\RegySetup.wixpdb
+obj\Debug\RegySetup.wixproj.BindContentsFileListnull.txt
+obj\Debug\RegySetup.wixproj.BindOutputsFileListnull.txt
+obj\Debug\RegySetup.wixproj.BindBuiltOutputsFileListnull.txt
